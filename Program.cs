@@ -14,13 +14,14 @@ namespace Y9_DEC_TO_BIN_SKELETON
             int myInt = 0; //just for testing single stepping
             string myString = "12"; //watch me being cast from string to int
             int myStringAsInt = Convert.ToInt32(myString); //watch me cast from string to int
-
+              
             //MAIN:  NUMBER CONVERSION PROGRAM
 
             //CODE GOES HERE
             Console.WriteLine(numberConversion(48, 2)); ///THIS CALLS AND OUTPUTS THE RESULT OF A SUBROUTINE
         }
 
+        //LET'S USE THE 'STRUCTURED APPROACH' TO PROGRAMMING... A QUICK INTRODUCTION TO SUBROUTINES(functions and procedures)...a.k.a
         //static void means the function will not return a value so it does not need a data type 
         //...this function DOES return a value so the method must have a data type
        static string numberConversion(int number, int numberbase) ///THIS IS A SUBROUTINE 
