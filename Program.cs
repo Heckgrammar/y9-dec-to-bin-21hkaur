@@ -22,7 +22,7 @@ namespace Y9_DEC_TO_BIN_SKELETON
 
 
 
-            ///
+            ///NORMAL CONVERSION
             // Console.WriteLine("Please input decimal number from 0 to 255: "); 
             // string myInput = Console.ReadLine();
             // int myDecimal = Convert.ToInt32(myInput);
@@ -50,30 +50,15 @@ namespace Y9_DEC_TO_BIN_SKELETON
             ///
 
 
-
+            ///SUBROUTINE CONVERSION
             Console.WriteLine("Please input decimal number from 0 to 255: ");
             string myInput = Console.ReadLine();
-            int myDecimal = Convert.ToInt32(myInput);
-            int myInteger = 0;
-            int myBinaryDig = 0;
-            string myBinaryNum = " ";
-            string myBinary = " "; 
-            while (myDecimal / 2 != 0)
-            {
-                myInteger = myDecimal / 2;
-                myBinaryDig = myDecimal % 2;
-                myBinary = myBinaryDig.ToString();
-                myBinaryNum = myBinaryNum.Insert(0, myBinary);
-                myDecimal = myInteger;
-            }
-            myInteger = myDecimal / 2;
-            myBinaryDig = myDecimal % 2;
-            myBinary = myBinaryDig.ToString();
-            myBinaryNum = myBinaryNum.Insert(0, myBinary);
-            Console.WriteLine("Number in binary is: " + myBinaryNum);
+            string result = convertToBinary(myInput);
+            Console.WriteLine("Number in binary is: " + result);
         }
 
-        static int convertToBinary(string myInput) {
+        static string convertToBinary(string myInput) 
+         
             int myDecimal = Convert.ToInt32(myInput);
             int myInteger = 0;
             int myBinaryDig = 0;
@@ -87,6 +72,13 @@ namespace Y9_DEC_TO_BIN_SKELETON
                 myBinaryNum = myBinaryNum.Insert(0, myBinary);
                 myDecimal = myInteger;
             }
+            myInteger = myDecimal / 2;
+            myBinaryDig = myDecimal % 2;
+            myBinary = myBinaryDig.ToString();
+            myBinaryNum = myBinaryNum.Insert(0, myBinary);
+            string finalNum = Convert.ToString(myBinaryNum);
+            return finalNum;
+            ///
         }
    
 
