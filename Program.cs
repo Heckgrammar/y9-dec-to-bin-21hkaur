@@ -61,12 +61,21 @@ namespace Y9_DEC_TO_BIN_SKELETON
             ///Extension
             Console.WriteLine("Please input a decimal number from 0 to 255 (in digits): ");
             string userInput = Console.ReadLine();
-            bool my != 0.IsDigit(myInput)
-            int myInput = Convert.ToInt32(userInput);
-            if (
+            char myChar = userInput[0];
+            bool myBool = Char.IsDigit(myChar);
+            if (myBool == false)
             {
-
+                while (myBool != true)
+                {
+                    Console.WriteLine("Your input is not valid");
+                    Console.WriteLine("Please re-input a decimal number from 0 to 255 (in digits): ");
+                    userInput = Console.ReadLine();
+                    myChar = userInput[0];
+                    myBool = Char.IsDigit(myChar);
+                }
             }
+
+            int myInput = Convert.ToInt32(userInput);
             if (-1 < myInput && myInput < 256)
             {
                 string result = convertToBinary(myInput);
@@ -74,22 +83,28 @@ namespace Y9_DEC_TO_BIN_SKELETON
             }
             else if (myInput != 0)
             {
-                Console.WriteLine("Your input is not valid");
-                Console.WriteLine("Please re-input a decimal number from 0 to 255 (in digits): ");
-                userInput = Console.ReadLine();
-                myInput = Convert.ToInt32(userInput);
+                while (myInput != 0)
+                {
+                    Console.WriteLine("Your input is not valid");
+                    Console.WriteLine("Please re-input a decimal number from 0 to 255 (in digits): ");
+                    userInput = Console.ReadLine();
+                    myInput = Convert.ToInt32(userInput);
+                }
             }
             else
             {
-                Console.WriteLine("Your input is not valid");
-                Console.WriteLine("Please re-input a decimal number from 0 to 255 (in digits): ");
-                userInput = Console.ReadLine();
-                myInput = Convert.ToInt32(userInput);
+                while (myInput < 0 || myInput > 255)
+                {
+                    Console.WriteLine("Your input is not valid");
+                    Console.WriteLine("Please re-input a decimal number from 0 to 255 (in digits): ");
+                    userInput = Console.ReadLine();
+                    myInput = Convert.ToInt32(userInput);
+                }
             }
             
         }
 
-        ///Subroutine for Extension
+        ///Subroutine for Extension 
         static string convertToBinary(int myInput)
         {
             int myDecimal = Convert.ToInt32(myInput);
