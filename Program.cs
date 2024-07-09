@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
+using System.Runtime.Remoting.Services;
 using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
@@ -57,55 +58,54 @@ namespace Y9_DEC_TO_BIN_SKELETON
             //string myInput = Console.ReadLine();
             //string result = convertToBinary(myInput);
             //Console.WriteLine("Number in binary is: " + result);
-             
+
             ///Extension
-            Console.WriteLine("Please input a decimal number from 0 to 255 (in digits): ");
-            string userInput = Console.ReadLine();
-            char myChar = userInput[0];
-            bool myBool = Char.IsDigit(myChar);
-            if (myBool == false)
+            Console.WriteLine("Enter 1 for Decimal to Binary");
+            Console.WriteLine("Enter 2 for Binary to Decimal");
+            string userChoice = Console.ReadLine();
+            if (userChoice == "1")
             {
-                while (myBool != true)
+                Console.WriteLine("Please input a decimal number from 0 to 255 (in digits): ");
+                string userInput = Console.ReadLine();
+                char myChar = userInput[0];
+                bool myBool = Char.IsDigit(myChar);
+                while (myBool == false)
                 {
                     Console.WriteLine("Your input is not valid");
-                    Console.WriteLine("Please re-input a decimal number from 0 to 255 (in digits): ");
+                    Console.WriteLine("Please re-input a decimal number from 0 to 255 (IN DIGITS!!): ");
                     userInput = Console.ReadLine();
                     myChar = userInput[0];
                     myBool = Char.IsDigit(myChar);
                 }
+                int myInput = Convert.ToInt32(userInput);
+                if (myInput > -1 && myInput < 256)
+                {
+                    string result = denaryToBinary(myInput);
+                    Console.WriteLine("Number in binary is: " + result);
+                }
+                else
+                {
+                    while (myInput < 0 || myInput > 255)
+                    {
+                        Console.WriteLine("Your input is not valid");
+                        Console.WriteLine("Please re-input a decimal number from 0 to 255 (in digits): ");
+                        userInput = Console.ReadLine();
+                        myInput = Convert.ToInt32(userInput);
+                    }
+                }
             }
 
-            int myInput = Convert.ToInt32(userInput);
-            if (-1 < myInput && myInput < 256)
+            if (userChoice == "2")
             {
-                string result = convertToBinary(myInput);
-                Console.WriteLine("Number in binary is: " + result);
+                Console.WriteLine("Please enter a binary number between 1 and 8 bits (in digits): ");
+                string userInput1 = Console.ReadLine();
+                int myInput1 = Convert.ToInt32(userInput1);
             }
-            else if (myInput != 0)
-            {
-                while (myInput != 0)
-                {
-                    Console.WriteLine("Your input is not valid");
-                    Console.WriteLine("Please re-input a decimal number from 0 to 255 (in digits): ");
-                    userInput = Console.ReadLine();
-                    myInput = Convert.ToInt32(userInput);
-                }
-            }
-            else
-            {
-                while (myInput < 0 || myInput > 255)
-                {
-                    Console.WriteLine("Your input is not valid");
-                    Console.WriteLine("Please re-input a decimal number from 0 to 255 (in digits): ");
-                    userInput = Console.ReadLine();
-                    myInput = Convert.ToInt32(userInput);
-                }
-            }
-            
         }
 
-        ///Subroutine for Extension 
-        static string convertToBinary(int myInput)
+        ///Subroutines for Extension  <summary> 
+        ///DENARY TO BINARY
+        static string denaryToBinary(int myInput)
         {
             int myDecimal = Convert.ToInt32(myInput);
             int myInteger = 0;
@@ -127,6 +127,14 @@ namespace Y9_DEC_TO_BIN_SKELETON
             string finalNum = Convert.ToString(myBinaryNum);
             return finalNum;
         }
+
+        ///BINARY TO DENARY
+        static string binaryToDenary(int myInput1)
+        {
+            int myBinary1 = Convert.ToInt32(myInput1);
+
+        }
+
         ///
 
         ///SUBROUTINE FOR CONVERSION
