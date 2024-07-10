@@ -78,12 +78,7 @@ namespace Y9_DEC_TO_BIN_SKELETON
                     myBool = Char.IsDigit(myChar);
                 }
                 int myInput = Convert.ToInt32(userInput);
-                if (myInput > -1 && myInput < 256)
-                {
-                    string result = denaryToBinary(myInput);
-                    Console.WriteLine("Number in binary is: " + result);
-                }
-                else
+                if (myInput < 0 || myInput > 255)
                 {
                     while (myInput < 0 || myInput > 255)
                     {
@@ -93,13 +88,21 @@ namespace Y9_DEC_TO_BIN_SKELETON
                         myInput = Convert.ToInt32(userInput);
                     }
                 }
+                
+                if (myInput > -1 && myInput < 256)
+                {
+                    string result = denaryToBinary(myInput);
+                    Console.WriteLine("Number in binary is: " + result);
+                }
             }
 
             if (userChoice == "2")
             {
                 Console.WriteLine("Please enter a binary number between 1 and 8 bits (in digits): ");
                 string userInput1 = Console.ReadLine();
-                int myInput1 = Convert.ToInt32(userInput1);
+                //int myInput1 = Convert.ToInt32(userInput1);
+                string myDenery = binaryToDenary(userInput1);
+                Console.WriteLine("Number in denary is: " + myDenery);
             }
         }
 
@@ -120,7 +123,7 @@ namespace Y9_DEC_TO_BIN_SKELETON
                 myBinaryNum = myBinaryNum.Insert(0, myBinary);
                 myDecimal = myInteger;
             }
-            myInteger = myDecimal / 2;
+            myInteger = myDecimal / 2; 
             myBinaryDig = myDecimal % 2;
             myBinary = myBinaryDig.ToString();
             myBinaryNum = myBinaryNum.Insert(0, myBinary);
@@ -129,10 +132,17 @@ namespace Y9_DEC_TO_BIN_SKELETON
         }
 
         ///BINARY TO DENARY
-        static string binaryToDenary(int myInput1)
+        static string binaryToDenary(string myInput1)
         {
-            int myBinary1 = Convert.ToInt32(myInput1);
-
+            //int result = 0;
+            //for (int i = myInput1.Length; i > 0; i--)
+            //{
+            //    if (myInput1.Substring(i - 1, 1) == "1")
+            //    {
+            ///        result += (int)Math.Pow(2, (myInput1.Length - i));
+            //    }
+            //}
+            //return result.ToString();
         }
 
         ///
