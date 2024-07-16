@@ -132,34 +132,38 @@ namespace Y9_DEC_TO_BIN_SKELETON
         }
 
         ///BINARY TO DENARY
-        static string binaryToDenary(string myInput1)
+        static string binaryToDenary(string userInput1)
         {
-            int length = myInput1.Length - 1;
+            int length = userInput1.Length - 1;
             int i = 0;
-            int myInput2 = Convert.ToInt32(myInput1);
+            int userInput2 = Convert.ToInt32(userInput1);
             int a = 2;
             int multiply = 0;
             int result = 0;
             while (i < length + 1) 
             {
-                int binaryDig = myInput1[length];
-                if (binaryDig == 0)
+                char binaryDig = userInput1[length];
+                int binaryDig1 = ConvertToInt32;
+                if (binaryDig == 0) 
                 {
                     a = a * 2;
                     i = i + 1;
                     length = length - 1;
+                    binaryDig = userInput1[length];
                 }
                 else if (binaryDig == 1)
                 {
+                    ///int digDig = Convert.ToInt32(binaryDig);
                     multiply = binaryDig * a;
                     a = a * 2;
-                    i = i + 1;
                     length = length - 1;
+                    binaryDig = userInput1[length];
                     result = multiply + result;
+                    i = i + 1;
                 }
-                string result1 = Convert.ToString(result);
-                return result1;
             }
+            string result1 = Convert.ToString(result);
+            return result1;
             //int result = 0;
             //for (int i = myInput1.Length; i > 0; i--)
             //{
