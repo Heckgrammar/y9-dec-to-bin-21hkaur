@@ -126,7 +126,7 @@ namespace Y9_DEC_TO_BIN_SKELETON
             myInteger = myDecimal / 2; 
             myBinaryDig = myDecimal % 2;
             myBinary = myBinaryDig.ToString();
-            myBinaryNum = myBinaryNum.Insert(0, myBinary);
+            myBinaryNum = myBinaryNum.Insert(0, myBinary); 
             string finalNum = Convert.ToString(myBinaryNum);
             return finalNum;
         }
@@ -134,6 +134,32 @@ namespace Y9_DEC_TO_BIN_SKELETON
         ///BINARY TO DENARY
         static string binaryToDenary(string myInput1)
         {
+            int length = myInput1.Length - 1;
+            int i = 0;
+            int myInput2 = Convert.ToInt32(myInput1);
+            int a = 2;
+            int multiply = 0;
+            int result = 0;
+            while (i < length + 1) 
+            {
+                int binaryDig = myInput1[length];
+                if (binaryDig == 0)
+                {
+                    a = a * 2;
+                    i = i + 1;
+                    length = length - 1;
+                }
+                else if (binaryDig == 1)
+                {
+                    multiply = binaryDig * a;
+                    a = a * 2;
+                    i = i + 1;
+                    length = length - 1;
+                    result = multiply + result;
+                }
+                string result1 = Convert.ToString(result);
+                return result1;
+            }
             //int result = 0;
             //for (int i = myInput1.Length; i > 0; i--)
             //{
