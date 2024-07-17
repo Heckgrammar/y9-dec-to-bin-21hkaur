@@ -134,33 +134,56 @@ namespace Y9_DEC_TO_BIN_SKELETON
         ///BINARY TO DENARY
         static string binaryToDenary(string userInput1)
         {
-            int length = userInput1.Length - 1;
-            int i = 0;
-            int userInput2 = Convert.ToInt32(userInput1);
+            int length = userInput1.Length -1;
+            ///int i = 0;
+            ///int userInput2 = Convert.ToInt32(userInput1);
             int a = 2;
             int multiply = 0;
             int result = 0;
-            while (i < length + 1) 
+            ///char binaryDig = userInput1[length];
+            ///int binaryDig1 = Convert.ToInt32(binaryDig);
+            ///int binaryDig1 = Convert.ToInt32(userInput1[length]);
+            ///Console.WriteLine(userInput1[length]);
+            //Console.WriteLine(length);
+            char binaryDig1 = userInput1[length];
+            char i = Convert.ToChar(0);
+            char j = Convert.ToChar(0);
+            while (length >= 0) 
             {
-                char binaryDig = userInput1[length];
-                int binaryDig1 = ConvertToInt32;
-                if (binaryDig == 0) 
+                if (binaryDig1 == i) 
                 {
                     a = a * 2;
-                    i = i + 1;
+                    ///i = i + 1;
                     length = length - 1;
-                    binaryDig = userInput1[length];
+                    ///binaryDig = userInput1[length];
+                    ///binaryDig1 = Convert.ToInt32(binaryDig);
+                    //binaryDig1 = Convert.ToInt32(userInput1[length]);
+                    binaryDig1 = userInput1[length];
                 }
-                else if (binaryDig == 1)
+                else if (binaryDig1 == j)
                 {
-                    ///int digDig = Convert.ToInt32(binaryDig);
-                    multiply = binaryDig * a;
+                    int digDig = Convert.ToInt32(binaryDig1);
+                    multiply = digDig * a;
                     a = a * 2;
                     length = length - 1;
-                    binaryDig = userInput1[length];
+                    ///binaryDig = userInput1[length];
+                    ///binaryDig1 = Convert.ToInt32(binaryDig);
+                    //binaryDig1 = Convert.ToInt32(userInput1[length]);
                     result = multiply + result;
-                    i = i + 1;
+                    ///i = i + 1;
+                    binaryDig1 = userInput1[length];
+                } 
+                else
+                {
+                    a = a * 2;
+                    ///i = i + 1;
+                    length = length - 1;
+                    ///binaryDig = userInput1[length];
+                    ///binaryDig1 = Convert.ToInt32(binaryDig);
+                    //binaryDig1 = Convert.ToInt32(userInput1[length]);
+                    binaryDig1 = userInput1[length];
                 }
+                Console.WriteLine("Waiting for your result...");
             }
             string result1 = Convert.ToString(result);
             return result1;
