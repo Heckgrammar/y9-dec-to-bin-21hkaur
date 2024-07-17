@@ -145,6 +145,7 @@ namespace Y9_DEC_TO_BIN_SKELETON
             ///int binaryDig1 = Convert.ToInt32(userInput1[length]);
             ///Console.WriteLine(userInput1[length]);
             //Console.WriteLine(length);
+            int digDig = 0;
             char binaryDig1 = userInput1[length];
             char i = Convert.ToChar(0);
             char j = Convert.ToChar(0);
@@ -155,23 +156,23 @@ namespace Y9_DEC_TO_BIN_SKELETON
                     a = a * 2;
                     ///i = i + 1;
                     length = length - 1;
-                    ///binaryDig = userInput1[length];
+                    ///binaryDig = userInput1[length]; 
                     ///binaryDig1 = Convert.ToInt32(binaryDig);
                     //binaryDig1 = Convert.ToInt32(userInput1[length]);
                     binaryDig1 = userInput1[length];
                 }
                 else if (binaryDig1 == j)
                 {
-                    int digDig = Convert.ToInt32(binaryDig1);
+                    digDig = Convert.ToInt32(binaryDig1);
                     multiply = digDig * a;
                     a = a * 2;
+                    result = multiply + result;
                     length = length - 1;
                     ///binaryDig = userInput1[length];
                     ///binaryDig1 = Convert.ToInt32(binaryDig);
                     //binaryDig1 = Convert.ToInt32(userInput1[length]);
-                    result = multiply + result;
-                    ///i = i + 1;
                     binaryDig1 = userInput1[length];
+                    ///i = i + 1;
                 } 
                 else
                 {
